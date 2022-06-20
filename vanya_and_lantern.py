@@ -30,6 +30,15 @@ def quick_sort(arr: list, low: int, high: int) :
 if __name__ == "__main__":
     n, l = [int(x) for x in input().split()]
     arr = [int(x) for x in input().split()]
-    quick_sort(arr, 0, len(arr)-1)
+    arr.sort()
     maxsize = 0
-
+    a = arr[0] - 0
+    b = l - arr[-1]
+    for i in range(1, len(arr)-1, 1):
+        # print(arr[i])
+        before = arr[i] - arr[i-1]
+        after = arr[i+1] - arr[i]
+        maximum = max(before, after)
+        if maximum > maxsize:
+            maxsize = maximum
+    print(max(maxsize/2, max(a, b)))
